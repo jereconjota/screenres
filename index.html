@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window Size Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="window size, browser window, inner window, outer window, online tool">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="Discover the size of your browser window with this free online tool. Check the inner and outer size of your browser window.">
+    
+    <meta property="og:title" content="Window Size Checker">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="/public/screensize.png">
+    <meta property="og:description"
+        content="Discover the size of your browser window with this free online tool. Check the inner and outer size of your browser window.">
+    
+        <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Window Size Checker">
+    <meta name="twitter:description"
+        content="Discover the size of your browser window with this free online tool. Check the inner and outer size of your browser window.">
+    <meta name="twitter:image" content="/public/screensize.png">
+    
+    <link rel="shortcut icon" href="/public/screensize.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            width: 500px;
+            margin: 10px;
+            border: 2px solid rgb(0, 176, 176);
+
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        p {
+            font-size: 24px;
+            color: #666;
+            margin: 0;
+        }
+
+        .sizes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .size {
+            border: 1px solid rgb(0, 176, 176);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+            flex-basis: calc(50% - 20px);
+            max-width: 250px;
+        }
+
+        .size-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .size-value {
+            font-size: 2rem;
+            color: #666;
+            margin: 0;
+        }
+
+        ::-moz-selection {
+            /* Code for Firefox */
+            background: rgba(0, 176, 176, 0.341);
+        }
+
+        ::selection {
+            background: rgba(0, 176, 176, 0.341);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Window Size Checker</h1>
+        <p>Find out the size of your browser window</p>
+        <div class="sizes">
+            <div class="size">
+                <div class="size-title">Outer Size <br> (Total screen)</div>
+                <div class="size-value" id="outer-size"></div>
+            </div>
+            <div class="size">
+                <div class="size-title">Inner Size <br> (browser)</div>
+                <div class="size-value" id="inner-size"></div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function updateSize() {
+            const outerWidth = window.outerWidth;
+            const outerHeight = window.outerHeight;
+            const innerWidth = window.innerWidth;
+            const innerHeight = window.innerHeight;
+
+            const outerSizeElement = document.querySelector('#outer-size');
+            outerSizeElement.textContent = `${outerWidth} x ${outerHeight}`;
+
+            const innerSizeElement = document.querySelector('#inner-size');
+            innerSizeElement.textContent = `${innerWidth} x ${innerHeight}`;
+        }
+
+        window.addEventListener('resize', updateSize);
+        updateSize();
+    </script>
+</body>
+
+</html>
